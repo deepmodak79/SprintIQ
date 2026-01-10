@@ -1,0 +1,6 @@
+@SprintIQ.API_HostAddress = http://localhost:5038
+
+GET {{SprintIQ.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
