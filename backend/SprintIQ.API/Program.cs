@@ -17,9 +17,9 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo 
     { 
-        Title = "SprintIQ API", 
-        Version = "v1",
-        Description = "Sprint Visual Management & Daily Management API"
+        Title = "SprintIQ 2.0 API", 
+        Version = "v2.0",
+        Description = "Jira-Powered Sprint Visual Management & Daily Management with AI Analytics"
     });
     
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -93,6 +93,10 @@ builder.Services.AddScoped<IStandupService, StandupService>();
 builder.Services.AddScoped<IBlockerService, BlockerService>();
 builder.Services.AddScoped<ILeaderboardService, LeaderboardService>();
 builder.Services.AddScoped<IAiService, AiService>();
+
+// SprintIQ 2.0: Jira Integration & AI Analytics
+builder.Services.AddScoped<IJiraService, JiraService>();
+builder.Services.AddHttpClient(); // For Jira API calls
 
 var app = builder.Build();
 

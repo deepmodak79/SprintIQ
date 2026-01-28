@@ -13,12 +13,20 @@ public class SprintIQDbContext : DbContext
     public DbSet<Team> Teams => Set<Team>();
     public DbSet<TeamMember> TeamMembers => Set<TeamMember>();
     public DbSet<Sprint> Sprints => Set<Sprint>();
-    public DbSet<SprintTask> SprintTasks => Set<SprintTask>();
+    public DbSet<SprintTask> Tasks => Set<SprintTask>();
     public DbSet<SprintBurndown> SprintBurndowns => Set<SprintBurndown>();
     public DbSet<DailyStandup> DailyStandups => Set<DailyStandup>();
     public DbSet<Blocker> Blockers => Set<Blocker>();
     public DbSet<Badge> Badges => Set<Badge>();
     public DbSet<UserBadge> UserBadges => Set<UserBadge>();
+    
+    // SprintIQ 2.0: Jira Integration & AI Analytics
+    public DbSet<JiraWorkspace> JiraWorkspaces => Set<JiraWorkspace>();
+    public DbSet<JiraSync> JiraSyncs => Set<JiraSync>();
+    public DbSet<SprintRiskAnalysis> SprintRiskAnalyses => Set<SprintRiskAnalysis>();
+    public DbSet<BlockerPrediction> BlockerPredictions => Set<BlockerPrediction>();
+    public DbSet<TeamHealthMetrics> TeamHealthMetrics => Set<TeamHealthMetrics>();
+    public DbSet<StandupInsight> StandupInsights => Set<StandupInsight>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
