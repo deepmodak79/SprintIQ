@@ -36,7 +36,7 @@ public class BlockerService : IBlockerService
         // Update task if linked
         if (dto.TaskId.HasValue)
         {
-            var task = await _context.SprintTasks.FindAsync(dto.TaskId.Value);
+            var task = await _context.Tasks.FindAsync(dto.TaskId.Value);
             if (task != null)
             {
                 task.IsBlocked = true;

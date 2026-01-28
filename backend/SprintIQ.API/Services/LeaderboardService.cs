@@ -35,10 +35,10 @@ public class LeaderboardService : ILeaderboardService
 
         foreach (var user in users)
         {
-            var tasksCompleted = await _context.SprintTasks
+            var tasksCompleted = await _context.Tasks
                 .CountAsync(t => t.AssigneeId == user.Id && t.Status == TaskStatus.Done);
 
-            var storyPointsDelivered = await _context.SprintTasks
+            var storyPointsDelivered = await _context.Tasks
                 .Where(t => t.AssigneeId == user.Id && t.Status == TaskStatus.Done)
                 .SumAsync(t => t.StoryPoints);
 
@@ -86,10 +86,10 @@ public class LeaderboardService : ILeaderboardService
 
         foreach (var user in members.OrderByDescending(u => u.TotalPoints))
         {
-            var tasksCompleted = await _context.SprintTasks
+            var tasksCompleted = await _context.Tasks
                 .CountAsync(t => t.AssigneeId == user.Id && t.Status == TaskStatus.Done);
 
-            var storyPointsDelivered = await _context.SprintTasks
+            var storyPointsDelivered = await _context.Tasks
                 .Where(t => t.AssigneeId == user.Id && t.Status == TaskStatus.Done)
                 .SumAsync(t => t.StoryPoints);
 
@@ -197,10 +197,10 @@ public class LeaderboardService : ILeaderboardService
 
         if (user == null) return new DashboardStatsDto();
 
-        var tasksCompleted = await _context.SprintTasks
+        var tasksCompleted = await _context.Tasks
             .CountAsync(t => t.AssigneeId == userId && t.Status == TaskStatus.Done);
 
-        var totalStoryPoints = await _context.SprintTasks
+        var totalStoryPoints = await _context.Tasks
             .Where(t => t.AssigneeId == userId && t.Status == TaskStatus.Done)
             .SumAsync(t => t.StoryPoints);
 
@@ -313,7 +313,7 @@ public class LeaderboardService : ILeaderboardService
 
         var badges = await _context.Badges.Where(b => b.IsActive).ToListAsync();
 
-        var tasksCompleted = await _context.SprintTasks
+        var tasksCompleted = await _context.Tasks
             .CountAsync(t => t.AssigneeId == userId && t.Status == TaskStatus.Done);
 
         var standupCount = await _context.DailyStandups.CountAsync(s => s.UserId == userId);

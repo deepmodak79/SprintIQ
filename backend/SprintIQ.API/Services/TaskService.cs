@@ -24,7 +24,7 @@ public class TaskService : ITaskService
         var sprint = await _context.Sprints.FindAsync(dto.SprintId);
         if (sprint == null) return null;
 
-        var maxOrder = await _context.SprintTasks
+        var maxOrder = await _context.Tasks
             .Where(t => t.SprintId == dto.SprintId)
             .MaxAsync(t => (int?)t.OrderIndex) ?? 0;
 
@@ -41,7 +41,7 @@ public class TaskService : ITaskService
             CreatedAt = DateTime.UtcNow
         };
 
-        _context.SprintTasks.Add(task);
+        _context.Tasks.Add(task);
         await _context.SaveChangesAsync();
 
         await _sprintService.UpdateBurndownDataAsync(dto.SprintId);
@@ -51,7 +51,7 @@ public class TaskService : ITaskService
 
     public async Task<SprintTaskDto?> GetTaskByIdAsync(int taskId)
     {
-        var task = await _context.SprintTasks
+        var task = await _context.Tasks
             .Include(t => t.Assignee)
             .Include(t => t.Blockers)
             .FirstOrDefaultAsync(t => t.Id == taskId);
@@ -61,7 +61,7 @@ public class TaskService : ITaskService
 
     public async Task<List<SprintTaskDto>> GetTasksBySprintAsync(int sprintId)
     {
-        var tasks = await _context.SprintTasks
+        var tasks = await _context.Tasks
             .Include(t => t.Assignee)
             .Include(t => t.Blockers)
             .Where(t => t.SprintId == sprintId)
@@ -86,7 +86,7 @@ public class TaskService : ITaskService
 
     public async Task<SprintTaskDto?> UpdateTaskAsync(int taskId, UpdateTaskDto dto, int? userId = null)
     {
-        var task = await _context.SprintTasks.FindAsync(taskId);
+        var task = await _context.Tasks.FindAsync(taskId);
         if (task == null) return null;
 
         var previousStatus = task.Status;
@@ -143,12 +143,12 @@ public class TaskService : ITaskService
 
     public async Task<bool> DeleteTaskAsync(int taskId)
     {
-        var task = await _context.SprintTasks.FindAsync(taskId);
+        var task = await _context.Tasks.FindAsync(taskId);
         if (task == null) return false;
 
         var sprintId = task.SprintId;
 
-        _context.SprintTasks.Remove(task);
+        _context.Tasks.Remove(task);
         await _context.SaveChangesAsync();
 
         await _sprintService.UpdateBurndownDataAsync(sprintId);
