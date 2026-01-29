@@ -34,6 +34,18 @@ import { User } from '../../../core/models/models';
           <span class="nav-icon">🏆</span>
           <span class="nav-label">Leaderboard</span>
         </a>
+        
+        <div class="nav-divider"></div>
+        <div class="nav-section-title">SprintIQ 2.0</div>
+        
+        <a routerLink="/jira-integration" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">🔗</span>
+          <span class="nav-label">Jira Integration</span>
+        </a>
+        <a routerLink="/ai-insights" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">🤖</span>
+          <span class="nav-label">AI Insights</span>
+        </a>
       </nav>
 
       <div class="sidebar-footer">
@@ -133,6 +145,21 @@ import { User } from '../../../core/models/models';
       .nav-label {
         font-weight: 500;
       }
+    }
+    
+    .nav-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: var(--space-md) 0;
+    }
+    
+    .nav-section-title {
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-tertiary);
     }
     
     .sidebar-footer {

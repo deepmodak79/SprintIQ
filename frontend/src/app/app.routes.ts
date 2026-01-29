@@ -35,6 +35,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/teams/teams.component').then(m => m.TeamsComponent)
   },
   {
+    path: 'jira-integration',
+    loadComponent: () => import('./pages/jira-integration/jira-integration.component').then(m => m.JiraIntegrationComponent)
+  },
+  {
+    path: 'ai-insights',
+    loadComponent: () => import('./pages/ai-insights/ai-insights.component').then(m => m.AiInsightsComponent)
+  },
+  {
     path: '**',
     redirectTo: 'dashboard'
   }
