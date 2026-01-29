@@ -1,0 +1,87 @@
+=================================================================
+  DAY 2 COMMITS - Frontend & Integration (Tomorrow)
+=================================================================
+
+Run these commands TOMORROW to complete SprintIQ 2.0:
+
+-----------------------------------------------------------
+COMMIT 1: Add Frontend Services
+-----------------------------------------------------------
+cd D:\SprintIQ
+git add frontend/src/app/core/services/jira.service.ts
+git add frontend/src/app/core/services/analytics.service.ts
+git commit -m "feat: Add frontend services for Jira and AI analytics
+
+- JiraService for workspace management
+- AnalyticsService for AI insights
+- Type definitions for API responses"
+
+WAIT 3-4 MINUTES
+
+-----------------------------------------------------------
+COMMIT 2: Create Jira Integration Page
+-----------------------------------------------------------
+git add frontend/src/app/pages/jira-integration/
+git commit -m "feat: Add Jira Integration UI
+
+- Jira connection form with OAuth support
+- Project selection and sync interface
+- Sync status dashboard
+- Real-time connection status"
+
+WAIT 3-4 MINUTES
+
+-----------------------------------------------------------
+COMMIT 3: Create AI Insights Page
+-----------------------------------------------------------
+git add frontend/src/app/pages/ai-insights/
+git commit -m "feat: Add AI-Powered Insights dashboard
+
+- Team health score visualization
+- Sprint risk analysis display
+- Blocker prediction cards
+- Interactive metrics and charts
+- AI recommendations display"
+
+WAIT 3-4 MINUTES
+
+-----------------------------------------------------------
+COMMIT 4: Update Navigation and Routes
+-----------------------------------------------------------
+git add frontend/src/app/app.routes.ts
+git add frontend/src/app/shared/components/sidebar/sidebar.component.ts
+git commit -m "feat: Update navigation for SprintIQ 2.0 features
+
+- Add Jira Integration menu item
+- Add AI Insights menu item
+- Create SprintIQ 2.0 section in sidebar
+- Configure lazy-loaded routes"
+
+WAIT 3-4 MINUTES
+
+-----------------------------------------------------------
+COMMIT 5: Final Documentation
+-----------------------------------------------------------
+git add README.md
+git add GIT_COMMIT_PLAN_V2.md
+git commit -m "docs: Update documentation for SprintIQ 2.0
+
+- Add SprintIQ 2.0 features overview
+- Document Jira integration setup
+- Document AI analytics capabilities
+- Update architecture documentation"
+
+-----------------------------------------------------------
+PUSH TO GITHUB
+-----------------------------------------------------------
+git push origin master
+
+OR to sync with main branch:
+git push origin master:main
+
+=================================================================
+Notes:
+- Total of 5 commits for Day 2
+- Wait 3-4 minutes between each commit
+- This completes the SprintIQ 2.0 implementation
+=================================================================
